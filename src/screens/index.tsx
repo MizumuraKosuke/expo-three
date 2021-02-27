@@ -1,6 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { View } from 'react-native'
-import { Canvas, useFrame } from 'react-three-fiber'
+import {
+  MathUtils,
+} from 'three'
+import { Canvas, useFrame, useThree } from 'react-three-fiber'
 
 import globalStyles from '../utils/global-styles'
 
@@ -31,6 +34,31 @@ const Box = (props: any) => {
   )
 }
 
+const Camera = () => {
+  const camera = useRef<any>()
+  const { setDefaultCamera } = useThree()
+
+  useFrame(() => {
+    camera.current.rotation.z += 0.01
+    camera.current.rotation.x = MathUtils.degToRad(10)
+  })
+
+  useEffect(() => {
+    setDefaultCamera(camera.current)
+  }, [])
+
+  return (
+    <perspectiveCamera
+      ref={camera}
+      position={[ 0, 0, 0 ]}
+      rotation={[ 0 ,0, 0 ]}
+      near={0.1}
+      far={100}
+      fov={45}
+    />
+  )
+}
+
 const Three = () => {
   return (
     <View style={globalStyles.flex1}>
@@ -41,10 +69,11 @@ const Three = () => {
           preserveDrawingBuffer: true,
         }}
       >
+        <Camera />
         <ambientLight />
         <pointLight position={[ 10, 10, 10 ]} />
-        <Box position={[ -1.2, 0, 0 ]} />
-        <Box position={[ 1.2, 0, 0 ]} />
+        <Box position={[ 0, 1, -10 ]} />
+        <Box position={[ 0, -1, -10 ]} />
       </Canvas>
     </View>
   )

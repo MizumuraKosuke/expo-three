@@ -19,8 +19,9 @@
     "react-native-extended-stylesheet": "^0.12.0",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-web": "~0.13.12",
-    "react-three-fiber": "^5.3.18",
-    "three": "^0.125.2"
+    "react-spring": "^8.0.27",
+    "react-three-fiber": "^5.3.19",
+    "three": "^0.126.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
