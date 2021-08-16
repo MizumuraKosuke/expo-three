@@ -1,11 +1,10 @@
 import React, { useRef, useMemo, useState } from 'react'
-import { PrimitiveProps } from 'react-three-fiber'
 import { Asset } from 'expo-asset'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
-const SOL = (props: Partial<PrimitiveProps>) => {
-  const prim = useRef<PrimitiveProps>()
+const SOL = (props: Partial<any>) => {
+  const prim = useRef<any>()
   const [ building, setBuilding ] = useState(null)
 
   useMemo(

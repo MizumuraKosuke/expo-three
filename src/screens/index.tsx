@@ -1,16 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { View } from 'react-native'
-// import {
-//   MathUtils,
-// } from 'three'
-import { Canvas, useFrame, useThree, MeshProps, PerspectiveCameraProps } from 'react-three-fiber'
+import {
+  Mesh, PerspectiveCamera
+} from 'three'
+import { Canvas, useFrame, useThree } from 'react-three-fiber'
 
 import FBX from '../components/objects/fbx'
 
 import globalStyles from '../utils/global-styles'
 
-const Box = (props: Partial<MeshProps>) => {
-  const mesh = useRef<MeshProps>()
+const Box = (props: Partial<typeof Mesh>) => {
+  const mesh = useRef<Mesh>()
 
   const [ hovered, setHover ] = useState(false)
   const [ active, setActive ] = useState(false)
@@ -37,7 +37,7 @@ const Box = (props: Partial<MeshProps>) => {
 }
 
 const Camera = () => {
-  const camera = useRef<PerspectiveCameraProps>()
+  const camera = useRef<PerspectiveCamera>()
   const { setDefaultCamera } = useThree()
 
   useFrame(() => {

@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useRef } from 'react'
-import { useFrame, PrimitiveProps } from 'react-three-fiber'
+import { useFrame } from 'react-three-fiber'
 import { TextureLoader } from 'expo-three'
 import { Asset } from 'expo-asset'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 
-const SOL = (props: Partial<PrimitiveProps>) => {
-  const prim = useRef<PrimitiveProps>()
+const SOL = (props: Partial<any>) => {
+  const prim = useRef<any>()
   const [ building, setBuilding ] = useState(null)
 
   const textureLoader = new TextureLoader()
