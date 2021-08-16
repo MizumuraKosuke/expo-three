@@ -11,20 +11,20 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
-    "expo": "~40.0.0",
-    "expo-asset": "~8.2.1",
-    "expo-gl": "~9.2.0",
-    "expo-status-bar": "~1.0.3",
-    "expo-three": "^5.6.2",
+    "expo": "^42.0.0",
+    "expo-asset": "~8.3.3",
+    "expo-gl": "~10.4.2",
+    "expo-status-bar": "~1.0.4",
+    "expo-three": "^5.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-extended-stylesheet": "^0.12.0",
-    "react-native-safe-area-context": "^3.1.9",
-    "react-native-web": "~0.13.12",
-    "react-spring": "^8.0.27",
-    "react-three-fiber": "^5.3.19",
-    "three": "^0.126.0"
+    "react-native-safe-area-context": "3.2.0",
+    "react-native-web": "^0.17.1",
+    "react-spring": "^9.2.4",
+    "react-three-fiber": "^5.0.0-beta.12",
+    "three": "^0.131.3"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
