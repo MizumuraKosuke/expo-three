@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { View } from 'react-native'
 import {
-  Mesh, PerspectiveCamera
+  Mesh, PerspectiveCamera,
 } from 'three'
 import { Canvas, useFrame, useThree } from 'react-three-fiber'
 
