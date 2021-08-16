@@ -22,6 +22,11 @@ module.exports = {
     'jsx-a11y',
     '@typescript-eslint',
   ],
+  'settings': {
+    'react': {
+      'version': 'detect',
+    },
+  },
   'rules': {
     'comma-dangle': [ 'error', 'always-multiline' ],
     'arrow-parens': [ 'warn', 'always' ],
@@ -29,7 +34,16 @@ module.exports = {
     'class-methods-use-this': [ 'warn' ],
     'indent': [ 'error', 2, { 'SwitchCase': 1 }],
     'linebreak-style': [ 'error', 'unix' ],
-    'max-len': [ 'off' ],
+    'max-len': [
+      'warn',
+      {
+        'code': 100,
+        'ignoreUrls': true,
+        'ignoreStrings': true,
+        'ignoreTemplateLiterals': true,
+        'ignoreRegExpLiterals': true,
+      },
+    ],
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'no-console': [ 'warn' ],
@@ -49,7 +63,9 @@ module.exports = {
     'react/jsx-indent-props': [ 2, 2 ],
     'react/jsx-closing-bracket-location': [ 1, 'tag-aligned' ],
     'jsx-a11y/anchor-is-valid': [ 'off' ],
-    'no-unused-vars': [ 'warn' ],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [ 'error' ],
+    '@typescript-eslint/no-var-requires': [ 'off' ],
     'react/jsx-props-no-spreading': [ 'off' ],
     'react/jsx-curly-newline': [ 'off' ],
     'react/jsx-one-expression-per-line': 'off',
@@ -59,10 +75,9 @@ module.exports = {
   'overrides': [
     {
       // enable the rule specifically for TypeScript files
-      'files': [ '*.tsx', '*.ts' ],
+      'files': [ '*.tsx' ],
       'rules': {
         '@typescript-eslint/explicit-module-boundary-types': [ 'off' ],
-        '@typescript-eslint/no-explicit-any': [ 'off' ],
       },
     },
   ],

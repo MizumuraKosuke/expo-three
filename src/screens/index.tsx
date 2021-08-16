@@ -1,14 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { View } from 'react-native'
-import {
-  MathUtils,
-} from 'three'
-import { Canvas, useFrame, useThree } from 'react-three-fiber'
+// import {
+//   MathUtils,
+// } from 'three'
+import { Canvas, useFrame, useThree, MeshProps, PerspectiveCameraProps } from 'react-three-fiber'
+
+import FBX from '../components/objects/fbx'
 
 import globalStyles from '../utils/global-styles'
 
-const Box = (props: any) => {
-  const mesh = useRef<any>()
+const Box = (props: Partial<MeshProps>) => {
+  const mesh = useRef<MeshProps>()
 
   const [ hovered, setHover ] = useState(false)
   const [ active, setActive ] = useState(false)
@@ -35,12 +37,12 @@ const Box = (props: any) => {
 }
 
 const Camera = () => {
-  const camera = useRef<any>()
+  const camera = useRef<PerspectiveCameraProps>()
   const { setDefaultCamera } = useThree()
 
   useFrame(() => {
-    camera.current.rotation.z += 0.01
-    camera.current.rotation.x = MathUtils.degToRad(10)
+    // camera.current.rotation.z += 0.01
+    // camera.current.rotation.x = MathUtils.degToRad(10)
   })
 
   useEffect(() => {
@@ -50,10 +52,10 @@ const Camera = () => {
   return (
     <perspectiveCamera
       ref={camera}
-      position={[ 0, 0, 0 ]}
+      position={[ 0, 0, 10 ]}
       rotation={[ 0 ,0, 0 ]}
       near={0.1}
-      far={100}
+      far={10000}
       fov={45}
     />
   )
@@ -61,7 +63,7 @@ const Camera = () => {
 
 const Three = () => {
   return (
-    <View style={globalStyles.flex1}>
+    <View style={[ globalStyles.flex1, { backgroundColor: '#ccc' }]}>
       <Canvas
         gl={{
           antialias: true,
@@ -72,8 +74,9 @@ const Three = () => {
         <Camera />
         <ambientLight />
         <pointLight position={[ 10, 10, 10 ]} />
-        <Box position={[ 0, 1, -10 ]} />
-        <Box position={[ 0, -1, -10 ]} />
+        <Box position={[ 0, 5, -10 ]} />
+        <Box position={[ 0, -5, -10 ]} />
+        <FBX position={[ 0, -2, 0 ]} />
       </Canvas>
     </View>
   )
